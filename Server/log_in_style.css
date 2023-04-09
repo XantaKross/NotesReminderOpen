@@ -1,0 +1,80 @@
+.header {
+    position: relative;
+    font-size: 300%;
+    float: left;
+    top: 1%;
+    left: 1.5%;
+    color: rgb(0, 220, 220);
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.form {
+    position: fixed;
+    width: 20%;
+    height: 20%;
+    font-size: 100%;
+    float: left;
+    top: 22.5%;
+    left: 2%;
+    color: rgb(0, 220, 220);
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.text_center {
+    position: fixed;
+    width: 30%;
+    height: 20%;
+    font-size: 100%;
+    float: left;
+    bottom: 15%;
+    left: 2.5%;
+    color: rgb(0, 220, 220);
+    text-align: left;
+}
+
+/* Style the link */
+.text_center a {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Style the link on hover */
+.text_center a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+/* Style the link */
+.text_center a {
+color: blue;
+text-decoration: underline;
+}
+
+/* Style the link on hover */
+.text_center a:hover {
+color: red;
+}
+
+
+.submit_btn {
+    position: relative;
+    font-size: 120%;
+    background-color: white; /* White */
+    float: right;
+    right: 3%;
+    top: 15%;
+    border: none;
+    color: rgb(0, 170, 170);
+
+    padding: 2% 4%;
+    text-decoration: none;
+    display: inline-block;
+}
