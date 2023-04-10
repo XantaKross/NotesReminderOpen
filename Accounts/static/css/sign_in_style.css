@@ -17,7 +17,6 @@
     width: 90%;
     height: 40%;
     font-size: 100%;
-    float: left;
     top: 22.5%;
     left: 2%;
     color: rgb(0, 220, 220);
@@ -26,6 +25,17 @@
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+input {
+    display: inline-block;
+    width: 20%
+}
+
+label {
+    display: inline-block;
+    width: 75%
+}
+
 
 .submit_btn {
     position: relative;
@@ -38,11 +48,6 @@
     padding: 0.6% 1.1%;
     text-decoration: none;
     display: inline-block;
-}
-
-label {
-    display: inline-block;
-    width: 75%;
 }
 
 .text_center {
