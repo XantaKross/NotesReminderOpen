@@ -25,7 +25,7 @@ with open(BASE_DIR / 'Server/key.txt', 'r') as file:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
