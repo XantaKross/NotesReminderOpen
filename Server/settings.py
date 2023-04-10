@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Server.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['https://https://adapt-notes.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://adapt-notes.up.railway.app']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
