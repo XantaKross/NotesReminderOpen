@@ -1,0 +1,33 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="{% static 'js/script1.js' %}"></script>
+
+<body style="background-color:rgb(0, 30, 50);">
+
+<p class="title" id="Title">
+    Your Notebook
+</p>
+
+
+<table class="display">
+    <tbody id="TableBody"></tbody>
+</table>
+
+<input class="text_box" id="Text_Box">
+<p class='comment' id="Comment"></p>
+<button class="add" id="Add"> + </button>
+<button class="remove" id="Discard"> x </button>
+<button class="logout" id="LogOut" onclick="logOut()">LogOut</button>
+
+
+<script src="{% static 'js/script2.js' %}"></script>
+
+{% endblock %}

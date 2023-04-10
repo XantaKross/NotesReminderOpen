@@ -57,8 +57,6 @@ def Homepage(request):
 
                 memory.list[-1].append(row[key])
 
-        print(memory.list)
-
         # merging model headers and query results.
         memory.list.insert(0, MODEL_HEADERS)
         data = {'Data': memory.list}

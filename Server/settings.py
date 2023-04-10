@@ -20,8 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key.txt used in production secret!
-import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
+with open(BASE_DIR / 'Server/key.txt', 'r') as file:
+    SECRET_KEY = file.read()
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'sslserver',
     'Planner',
     'Accounts',
-
 ]
 
 MIDDLEWARE = [
@@ -53,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Server.urls'
@@ -60,7 +60,8 @@ ROOT_URLCONF = 'Server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'Server/templates'],
+        'DIRS': [BASE_DIR / 'Planner/templates',
+                 BASE_DIR / 'Accounts/templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,10 +86,10 @@ DATABASES = {
  #       'OPTIONS': {
  #           'read_default_file': '/etc/mysql/my.cnf',
         'NAME': 'Notebook',
-        'USER': 'xanta',
-        'PASSWORD': '0mn1v35s4',
-        'HOST': 'localhost',
-        'PORT': '8000'
+        'USER': 'root',
+        'PASSWORD': 'Hs66pMMH3E9vuFkfFm04',
+        'HOST': 'containers-us-west-10.railway.app',
+        'PORT': '6123'
         },
     }
 
@@ -128,11 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'Server/'
+STATIC_ROOT = BASE_DIR / 'Server/staticfiles'
 STATICFILES_DIRS = (
-    (BASE_DIR / "Server/static"),
+    (BASE_DIR / 'Planner' / STATIC_URL),
+    (BASE_DIR / 'Accounts' / STATIC_URL),
 )
-
 
 # Default primary key.txt field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
