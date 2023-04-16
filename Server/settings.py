@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
  #       'OPTIONS': {
  #           'read_default_file': '/etc/mysql/my.cnf',
-        'NAME': 'Notebook',
+        'NAME': 'Notes',
         'USER': 'root',
         'PASSWORD': 'Hs66pMMH3E9vuFkfFm04',
         'HOST': 'containers-us-west-10.railway.app',
