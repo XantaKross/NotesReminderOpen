@@ -33,7 +33,7 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=30, blank=False)
+    username = models.CharField(max_length=30, blank=False, unique=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=10, blank=True)
@@ -41,8 +41,8 @@ class CustomUser(AbstractBaseUser):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ["username"]
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ["email"]
 
     def name(self):
         return self.username

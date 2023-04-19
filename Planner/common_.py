@@ -8,9 +8,14 @@
                              autocommit="True")
 """
 
-#mycursor = database.cursor()
 from datetime import timedelta, datetime
-from django.utils import timezone
+import re
+
+def dist(time):
+    distance = (time.replace(microsecond=0) - datetime.now().replace(microsecond=0))/2
+    print(datetime.now().replace(microsecond=0) + distance)
+    return datetime.now().replace(microsecond=0) + distance
+
 
 def norm_time(datetimeobj):
     return datetimeobj.strftime(("%d/%m/%Y, %H:%M:%S"))
@@ -21,19 +26,12 @@ def norm(string):
         # in order to set dd/mm/year instead of stupid format.
         task, timedetails = task.strip(), timedetails.replace(',', '').strip()
 
-        format = ["%d/%m/%y %H:%M:%S", "%d/%m/%y %H:%M:%S %p"]
-        length = len(timedetails.split(' '))
-
-        if length == 1:
-            temporal = datetime.strptime(timedetails, format[0])
-
-        else:
-            temporal = datetime.strptime(timedetails, format[0])
+        format = ["%d/%m/%y %H:%M:%S"]
+        temporal = datetime.strptime(re.sub(" +", " ", timedetails), format[0])
 
     else: # default. set time/date split = 1;
         task = string
-        temporal = str(timezone.now() + timedelta(days=1))
-
+        temporal = datetime.now().replace(microsecond=0) + timedelta(days=1)
 
     return task.strip(), temporal
 

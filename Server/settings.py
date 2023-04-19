@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sslserver',
     'Planner',
     'Accounts',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -84,13 +85,12 @@ CSRF_TRUSTED_ORIGINS = ['https://adapt-notes.up.railway.app']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
- #       'OPTIONS': {
- #           'read_default_file': '/etc/mysql/my.cnf',
-        'NAME': 'Notebook',
+        'NAME': 'Notes',
         'USER': 'root',
-        'PASSWORD': 'Hs66pMMH3E9vuFkfFm04',
-        'HOST': 'containers-us-west-10.railway.app',
-        'PORT': '6123'
+        'PASSWORD': '0mn1v35s4',
+        #'PASSWORD': 'Hs66pMMH3E9vuFkfFm04',
+        #'HOST': 'localhost',#'containers-us-west-10.railway.app',
+        #'PORT': '6123'
         },
     }
 
@@ -118,12 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
+TIME_ZONE = "Asia/Kolkata"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -145,4 +140,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # login and sign in tasks.
 AUTH_USER_MODEL = "Accounts.CustomUser"
 
+# CELERY settings.
 
+
+# broker url?
+# PORT : 6379 and DATABASE IN USE: 0
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_BEAT_SCHEDULE = {
+    'scheduled_task': {
+        'task': 'Planner.tasks.run_whats_interface',
+        'schedule': 60.0*5,
+    },
+}

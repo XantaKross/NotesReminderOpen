@@ -1,0 +1,5 @@
+2023/04/18-21:03:08.086 1aae Reusing MANIFEST /home/xanta/Desktop/Notes/_IGNORE_session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/04/18-21:03:08.086 1aae Recovering log #19
+2023/04/18-21:03:08.312 1aae Reusing old log /home/xanta/Desktop/Notes/_IGNORE_session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000019.log 
+2023/04/18-21:03:08.312 1aae Delete type=2 #17
+2023/04/18-21:03:09.250 1ab8 Manual compaction at level-0 from '\x00\x09\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0a\x00\x00\x00' @ 0 : 0; will stop at (end)
