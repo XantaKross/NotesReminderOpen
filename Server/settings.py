@@ -85,6 +85,11 @@ CSRF_TRUSTED_ORIGINS = ['https://adapt-notes.up.railway.app']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+<<<<<<< HEAD
+=======
+ #       'OPTIONS': {
+ #           'read_default_file': '/etc/mysql/my.cnf',
+>>>>>>> 2249bbd506913e38a0b5f68b74b62d96e3907ce7
         'NAME': 'Notes',
         'USER': 'root',
         'PASSWORD': '0mn1v35s4',
