@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     'Planner',
     'Accounts',
     'django_celery_beat',
+    'Djangoserver_plus',
 ]
 
 MIDDLEWARE = [
@@ -85,11 +85,6 @@ CSRF_TRUSTED_ORIGINS = ['https://adapt-notes.up.railway.app']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-<<<<<<< HEAD
-=======
- #       'OPTIONS': {
- #           'read_default_file': '/etc/mysql/my.cnf',
->>>>>>> 2249bbd506913e38a0b5f68b74b62d96e3907ce7
         'NAME': 'Notes',
         'USER': 'root',
         'PASSWORD': '0mn1v35s4',
@@ -147,13 +142,21 @@ AUTH_USER_MODEL = "Accounts.CustomUser"
 
 # CELERY settings.
 
-
 # broker url?
 # PORT : 6379 and DATABASE IN USE: 0
-CELERY_BROKER_URL = "redis://localhost:6379/0"
+#CELERY_BROKER_URL = "redis://localhost:6379/0"
+# Deprecated feature, as development has been moved to
+# windows.
+
+CELERY_POOL = 'gevent'
+CELERY_CONCURRENCY = 1000
+
+CELERY_BEAT_POOL = 'gevent'
+CELERY_BEAT_CONCURRENCY = 1
+
 CELERY_BEAT_SCHEDULE = {
     'scheduled_task': {
         'task': 'Planner.tasks.run_whats_interface',
-        'schedule': 60.0*5,
+        'schedule': 30,
     },
 }

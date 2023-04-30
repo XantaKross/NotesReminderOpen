@@ -1,3 +1,2 @@
-2023/04/12-20:06:33.568 1016 Reusing MANIFEST /home/xanta/Desktop/Notes/Server/_IGNORE_session/Default/Local Storage/leveldb/MANIFEST-000001
-2023/04/12-20:06:33.569 1016 Recovering log #3
-2023/04/12-20:06:33.569 1016 Reusing old log /home/xanta/Desktop/Notes/Server/_IGNORE_session/Default/Local Storage/leveldb/000003.log 
+2023/04/23-11:11:03.538 5754 Creating DB C:\Projects\Notes-main\Server\_IGNORE_session\Default\Local Storage\leveldb since it was missing.
+2023/04/23-11:11:03.550 5754 Reusing MANIFEST C:\Projects\Notes-main\Server\_IGNORE_session\Default\Local Storage\leveldb/MANIFEST-000001

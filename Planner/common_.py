@@ -26,7 +26,8 @@ def norm(string):
         # in order to set dd/mm/year instead of stupid format.
         task, timedetails = task.strip(), timedetails.replace(',', '').strip()
 
-        format = ["%d/%m/%y %H:%M:%S"]
+        print(timedetails)
+        format = ["%d/%m/%Y %H:%M:%S"]
         temporal = datetime.strptime(re.sub(" +", " ", timedetails), format[0])
 
     else: # default. set time/date split = 1;

@@ -1,14 +1,14 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
-from wa_automate_socket_client import SocketClient
+#from wa_automate_socket_client import SocketClient
 from Planner.models import User_Interaction_Details, Planner
 from Accounts.models import CustomUser
 from datetime import datetime, timedelta
 from Planner.common_ import dist
+from Djangoserver_plus.signals import socket_ready
 
-@shared_task()
-def run_whats_interface():
-    client = SocketClient('http://localhost:8085/', 'secure_api_key')
+@shared_task
+def run_whats_interface(socket=socket_ready, **kwargs):
     today = str(datetime.now().date() + timedelta(days=1))
     four_days_ago = str(datetime.now().date() - timedelta(days=4))
     current_time = datetime.now().replace(microsecond=0)
@@ -23,13 +23,11 @@ def run_whats_interface():
         if len(reminders_in_queue) >= 1:
             for row in reminders_in_queue[username]:
                 # [task, deadline, update/reminder time]
+
                 if row[2].replace(microsecond=0) <= current_time:
-                    client.sendText(phone_number, f"Your Task: {str(row[0])}\nDeadline: {row[1]}")
-                    row = Planner.objects.get(Task=str(row[0]))
-                    row.NextUpdate = dist(datetime.now().replace(microsecond=0))
-                    row.save()
+                    socket.sendText(phone_number, f"Your Task: {str(row[0])}\nDeadline: {row[1]}")
+                    rows = Planner.objects.filter(Task=str(row[0]))
+                    for i in rows:
+                        i.NextUpdate = dist(datetime.now().replace(microsecond=0))
+                        i.save()
         else: continue
-
-
-
-    client.disconnect()
